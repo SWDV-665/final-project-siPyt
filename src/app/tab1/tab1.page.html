@@ -53,25 +53,34 @@
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculateVoltage()">
-          Calculate Voltage
-        </ion-button>
+        <ion-button expand="block" (click)="calculateVoltage()"
+          >Calculate Voltage</ion-button
+        >
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculateCurrent()">
-          Calculate Current
-        </ion-button>
+        <ion-button expand="block" (click)="calculateCurrent()"
+          >Calculate Current</ion-button
+        >
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculateResistance()">
-          Calculate Resistance
-        </ion-button>
+        <ion-button expand="block" (click)="calculateResistance()"
+          >Calculate Resistance</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <!-- Clear Button -->
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="medium" (click)="clearFields()"
+          >Clear</ion-button
+        >
       </ion-col>
     </ion-row>
 

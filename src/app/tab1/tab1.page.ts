@@ -39,4 +39,12 @@ export class Tab1Page {
       this.result = 'Please enter both Voltage (V) and Current (I).';
     }
   }
+
+  // Add this method to clear all fields
+  clearFields() {
+    this.voltage = 0;
+    this.current = 0;
+    this.resistance = 0;
+    this.result = '';
+  }
 }
