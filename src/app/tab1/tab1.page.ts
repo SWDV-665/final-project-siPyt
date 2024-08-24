@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-ohms-law',
@@ -6,45 +7,60 @@ import { Component } from '@angular/core';
   styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page {
-  voltage!: number;
-  current!: number;
-  resistance!: number;
-  result!: string;
+  voltage: string = '';
+  current: string = '';
+  resistance: string = '';
+  result: string = '';
 
   constructor() {}
 
   calculateVoltage() {
-    if (this.current && this.resistance) {
-      this.voltage = this.current * this.resistance;
+    const current = parseFloat(this.current);
+    const resistance = parseFloat(this.resistance);
+
+    if (!isNaN(current) && !isNaN(resistance)) {
+      this.voltage = (current * resistance).toString();
       this.result = `Voltage (V) = ${this.voltage} V`;
+      this.triggerHapticFeedback();
     } else {
-      this.result = 'Please enter both Current (I) and Resistance (R).';
+      this.result = 'Please enter valid numbers for Current (I) and Resistance (R).';
     }
   }
 
   calculateCurrent() {
-    if (this.voltage && this.resistance) {
-      this.current = this.voltage / this.resistance;
+    const voltage = parseFloat(this.voltage);
+    const resistance = parseFloat(this.resistance);
+
+    if (!isNaN(voltage) && !isNaN(resistance)) {
+      this.current = (voltage / resistance).toString();
       this.result = `Current (I) = ${this.current} A`;
+      this.triggerHapticFeedback();
     } else {
-      this.result = 'Please enter both Voltage (V) and Resistance (R).';
+      this.result = 'Please enter valid numbers for Voltage (V) and Resistance (R).';
     }
   }
 
   calculateResistance() {
-    if (this.voltage && this.current) {
-      this.resistance = this.voltage / this.current;
+    const voltage = parseFloat(this.voltage);
+    const current = parseFloat(this.current);
+
+    if (!isNaN(voltage) && !isNaN(current)) {
+      this.resistance = (voltage / current).toString();
       this.result = `Resistance (R) = ${this.resistance} Ω`;
+      this.triggerHapticFeedback();
     } else {
-      this.result = 'Please enter both Voltage (V) and Current (I).';
+      this.result = 'Please enter valid numbers for Voltage (V) and Current (I).';
     }
   }
 
-  // Add this method to clear all fields
   clearFields() {
-    this.voltage = 0;
-    this.current = 0;
-    this.resistance = 0;
+    this.voltage = '';
+    this.current = '';
+    this.resistance = '';
     this.result = '';
+  }
+
+  async triggerHapticFeedback() {
+    await Haptics.impact({ style: ImpactStyle.Heavy });
   }
 }

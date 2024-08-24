@@ -18,7 +18,7 @@
           <ion-label position="floating">Voltage (V)</ion-label>
           <ion-input
             [(ngModel)]="voltage"
-            type="number"
+            type="text"
             placeholder="Enter Voltage"
           ></ion-input>
         </ion-item>
@@ -31,7 +31,7 @@
           <ion-label position="floating">Current (I)</ion-label>
           <ion-input
             [(ngModel)]="current"
-            type="number"
+            type="text"
             placeholder="Enter Current"
           ></ion-input>
         </ion-item>
@@ -44,7 +44,7 @@
           <ion-label position="floating">Resistance (R)</ion-label>
           <ion-input
             [(ngModel)]="resistance"
-            type="number"
+            type="text"
             placeholder="Enter Resistance"
           ></ion-input>
         </ion-item>
@@ -53,34 +53,34 @@
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculateVoltage()"
-          >Calculate Voltage</ion-button
-        >
+        <ion-button expand="block" (click)="calculateVoltage()">
+          Calculate Voltage
+        </ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculateCurrent()"
-          >Calculate Current</ion-button
-        >
+        <ion-button expand="block" (click)="calculateCurrent()">
+          Calculate Current
+        </ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="calculateResistance()"
-          >Calculate Resistance</ion-button
-        >
+        <ion-button expand="block" (click)="calculateResistance()">
+          Calculate Resistance
+        </ion-button>
       </ion-col>
     </ion-row>
 
     <!-- Clear Button -->
     <ion-row>
       <ion-col>
-        <ion-button expand="block" color="medium" (click)="clearFields()"
-          >Clear</ion-button
-        >
+        <ion-button expand="block" color="medium" (click)="clearFields()">
+          Clear
+        </ion-button>
       </ion-col>
     </ion-row>
 
